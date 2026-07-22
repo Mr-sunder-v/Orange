@@ -1,12 +1,12 @@
-name: Selenium Java CI Tests
+name: Orange
 
 on:
   push:
     branches:
-      - main
+      - pom
   pull_request:
     branches:
-      - main
+      - pom
   workflow_dispatch:
 
 jobs:
