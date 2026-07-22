@@ -40,12 +40,18 @@ public class listeners implements ITestListener{
 	}
 	
 	private void attachScreenshot(ITestResult result) {
+		
+		 if (PageDriver.getDriver() == null) {
+		        System.out.println("Driver is null. Screenshot skipped.");
+		        return;
+		    }
 
+		 try {
 	    String path = ScreenshotUtils.captureScreenshot(
 	            PageDriver.getDriver(),
 	            result.getMethod().getMethodName());
 
-	    try {
+	    
 	        extentTestManager.getTest().addScreenCaptureFromPath(path);
 	    } catch (Exception e) {
 	        e.printStackTrace();
