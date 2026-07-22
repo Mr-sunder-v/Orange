@@ -18,7 +18,7 @@ public class PageDriver {
 		options.addArguments("--headless=new");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
-		driver.set(new ChromeDriver());
+		driver.set(new ChromeDriver(options));
 		getDriver().manage().window().maximize();
 		return getDriver();
 	}
