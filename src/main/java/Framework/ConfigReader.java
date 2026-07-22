@@ -9,7 +9,10 @@ public class ConfigReader {
 	private Properties prop;
 	
 	public ConfigReader() throws IOException {
-		FileInputStream fis = new FileInputStream("C:\\Users\\sunder\\OneDrive\\Desktop\\SCA\\dvja-master\\Orange\\src\\test\\resources\\config.properties");
+		String path = System.getProperty("user.dir")
+		        + "/src/test/resources/config.properties";
+
+		FileInputStream fis = new FileInputStream(path);
 		prop = new Properties();
 		prop.load(fis);
 		
