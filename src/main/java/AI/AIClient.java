@@ -36,6 +36,7 @@ public class AIClient {
 //		System.out.println(config.getProperty("geminiAPIKey"));
 //		System.out.println(config.getProperty("geminiAPIKey").length());
 		
+		
 		JSONObject root = new JSONObject(response.body());
 		
 		JSONArray candidates = root.getJSONArray("candidates");
@@ -45,8 +46,9 @@ public class AIClient {
 		JSONObject text = parts.getJSONObject(0);
 		String AiResponse = text.getString("text");
 		int statuscode = response.statusCode();
+		String url = apiURL;
 		
-		AIResponse ai = new AIResponse(AiResponse, statuscode);
+		AIResponse ai = new AIResponse(AiResponse, statuscode,url);
 		
 		return ai;
 	}
@@ -54,7 +56,15 @@ public class AIClient {
 	public AIClient() throws IOException {
 		config = new ConfigReader();
 		httpclient = HttpClient.newHttpClient();
-		apiURL= config.getProperty("url1")+"?key="+config.getProperty("geminiAPIKey");
+		
+		String apiKey = System.getenv("geminiAPIKey");
+
+		if(apiKey == null || apiKey.isBlank()) {
+		    apiKey = config.getProperty("geminiAPIKey");
+		}
+		
+		apiURL= config.getProperty("url1")+"?key="+apiKey;
+		System.out.println(apiURL);
 		
 		
 

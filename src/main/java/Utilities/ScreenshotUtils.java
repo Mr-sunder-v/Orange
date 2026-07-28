@@ -24,7 +24,7 @@ public class ScreenshotUtils{
         File source = ts.getScreenshotAs(OutputType.FILE);
 
         // Create screenshots folder if it doesn't exist
-        String folderPath = System.getProperty("user.dir") + "/Screenshots";
+        String folderPath = System.getProperty("user.dir") + "/test-output/screenshots";
         File folder = new File(folderPath);
 
         if (!folder.exists()) {

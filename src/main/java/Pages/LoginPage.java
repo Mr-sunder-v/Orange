@@ -16,7 +16,7 @@ public class LoginPage extends BaseTest{
 	//locators
 	
 	By username = By.xpath("//input[@name='username']");
-	By password = By.xpath("//input[@name='password']");
+	By password = By.xpath("//input[@name='passw']");
 	By LoginBtn = By.xpath("//button[@type='submit']");
 	
 	//Actions

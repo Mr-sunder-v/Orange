@@ -13,6 +13,7 @@ public class testing_AI {
 		 AIResponse response = ai.askGemini("Hi How are you");
 		 System.out.println(response.getStatusCode());
 		 System.out.println(response.getResponse());
+		 System.out.println(response.geturl());
 		
 		
 		

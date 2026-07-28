@@ -10,7 +10,7 @@ public class ConfigReader {
 	
 	public ConfigReader() throws IOException {
 		String path = System.getProperty("user.dir")
-		        + "/src/test/resources/config.properties";
+		        + "/src/test/resources/config.local.properties";
 
 		FileInputStream fis = new FileInputStream(path);
 		prop = new Properties();
