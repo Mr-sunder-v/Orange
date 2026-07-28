@@ -18,8 +18,8 @@ public class ConfigReader {
 		
 	}
 	
-	public String getUrl() {
-		return prop.getProperty("url");
+	public String getProperty(String key) {
+		return prop.getProperty(key);
 	}
 
 }

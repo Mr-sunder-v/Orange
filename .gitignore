@@ -1,0 +1,33 @@
+# Maven
+target/
+
+# TestNG Reports
+test-output/
+
+# Extent Reports (change if your folder name is different)
+Reports/
+
+# Screenshots
+Screenshots/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration (contains secrets)
+config.local.properties

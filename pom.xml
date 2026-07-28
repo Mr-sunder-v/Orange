@@ -33,6 +33,12 @@
       <version>5.1.1</version>
     </dependency>
 
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20250517</version>
+</dependency>
+
     <!-- Optional: WebDriverManager (only if Selenium Manager can't resolve a driver in your env) -->
     <dependency>
       <groupId>io.github.bonigarcia</groupId>

@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Login Test</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jul 22, 2026 03:13:08 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jul 28, 2026 03:20:48 pm</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -66,7 +71,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -74,25 +79,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">ValidateLogintest</p>
             <p class="text-sm">
-              <span>3:13:08 pm</span> / <span>00:00:01:792</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>3:20:48 pm</span> / <span>00:00:12:047</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">ValidateLogintest</h5>
-<span class='badge badge-success'>07.22.2026 3:13:08 pm</span>
-<span class='badge badge-danger'>07.22.2026 3:13:10 pm</span>
-<span class='badge badge-default'>00:00:01:792</span>
+<h5 class="test-status text-fail">ValidateLogintest</h5>
+<span class='badge badge-success'>07.28.2026 3:20:48 pm</span>
+<span class='badge badge-danger'>07.28.2026 3:21:00 pm</span>
+<span class='badge badge-default'>00:00:12:047</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -109,16 +114,167 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:13:08 pm</td>
+        <td>3:20:48 pm</td>
         <td>
           Entering the details
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:13:09 pm</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>3:20:48 pm</td>
         <td>
-          Test Pass
+          <textarea readonly class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@name='pass']"}
+  (Session info: chrome=150.0.7871.129)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3898e09b31cf743aff87d6f18e56befd, findElement {using=xpath, value=//input[@name='pass']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 150.0.7871.129, chrome: {chromedriverVersion: 150.0.7871.124 (9261fd0a595..., userDataDir: C:\Users\sunder\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53717}, goog:processID: 5356, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53717/devtoo..., se:cdpVersion: 150.0.7871.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3898e09b31cf743aff87d6f18e56befd
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at Pages.LoginPage.enterPassword(LoginPage.java:27)
+	at Pages.LoginPage.login(LoginPage.java:41)
+	at Testcases.Test01_LoginScenario.ValidateLogintest(Test01_LoginScenario.java:16)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:819)
+	at org.testng.TestRunner.run(TestRunner.java:619)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+	at org.testng.TestNG.runSuites(TestNG.java:1134)
+	at org.testng.TestNG.run(TestNG.java:1101)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:110)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</textarea>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:21:00 pm</td>
+        <td>
+          ### 1. Root Cause
+The test failed with a `NoSuchElementException` because the WebDriver could not find any element using the XPath `//input[@name='pass']` on the OrangeHRM login page. 
+
+The actual `name` attribute value for the password input field on the OrangeHRM login page is **`password`**, not **`pass`**.
+
+---
+
+### 2. Why It Happened
+1. **Incorrect Locator Attribute:** The developer/tester used a guessed or incorrect attribute name (`pass`) in the XPath expression. On the OrangeHRM portal (`https://opensource-demo.orangehrmlive.com/`), the HTML source code for the password input field is:
+   ```html
+   <input class="oxd-input oxd-input--active" type="password" name="password" placeholder="Password">
+   ```
+2. **Missing Synchronization (Potential Flakiness):** OrangeHRM is a modern SPA (Single Page Application). If the script did not use explicit waits, the test might have looked for the element before the login form fully loaded on the DOM, though in this specific case, the wrong locator is the primary blocker.
+
+---
+
+### 3. Recommended Fix
+Update the locator in your Page Object Class (`Pages.LoginPage.java`) to target the correct `name` attribute value. Additionally, wrap the interaction within an explicit wait (`WebDriverWait`) to ensure the input field is interactive.
+
+#### Corrected Code implementation in `LoginPage.java`:
+
+```java
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class LoginPage {
+    private WebDriver driver;
+    private WebDriverWait wait;
+
+    // Updated locators using correct attributes
+    private By usernameField = By.name("username");
+    private By passwordField = By.name("password"); // Fixed from 'pass'
+    private By loginButton = By.cssSelector("button[type='submit']");
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    public void enterPassword(String password) {
+        // Explicit wait ensures element readiness before action
+        WebElement passwordElement = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
+        passwordElement.clear();
+        passwordElement.sendKeys(password);
+    }
+    
+    // Other methods (enterUsername, clickLogin) go here...
+}
+```
+
+---
+
+### 4. Better Locators (if applicable)
+For OrangeHRM's login page, here are cleaner, more robust alternative locators:
+
+| Target Element | Recommended Locator | Strategy | Why it's better |
+| :--- | :--- | :--- | :--- |
+| **Password Field** | `By.name("password")` | `By.name` | Cleanest direct locator, native to Selenium, faster than XPath. |
+| **Password Field** | `input[name='password']` | CSS Selector | Faster performance in modern browsers compared to XPath. |
+| **Password Field** | `//input[@type='password']` | XPath | Highly reliable as there is typically only one password input type on a login page. |
+
+---
+
+### 5. Best Practices to Avoid This Issue
+
+1. **Verify Locators in Browser DevTools First:**
+   Before coding, open the page in Chrome, press `F12` (DevTools), go to the *Elements* or *Console* tab, and run a search (Ctrl+F) using your XPath/CSS to ensure it matches exactly **1/1** element.
+2. **Prefer Standard Locators over Custom XPaths:**
+   When `id` or `name` attributes are available (like `name="password"`), prioritize using `By.id()` or `By.name()`. They are faster and less prone to syntax errors.
+3. **Always Use Explicit Waits:**
+   Never interact with elements directly using `driver.findElement()`. Wrap element interactions using `WebDriverWait` with `ExpectedConditions.elementToBeClickable` or `visibilityOfElementLocated` to handle dynamic loading.
+4. **Leverage IDE Plugins:**
+   Use IDE extensions like *ChroPath*, *SelectorsHub*, or built-in IDE DOM inspectors to validate locators directly from your development workspace.
         </td>
       </tr>
   </tbody>
@@ -135,30 +291,79 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="container-fluid p-4 view dashboard-view">
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.NoSuchElementException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>15:20:48 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>ValidateLogintest</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jul 22, 2026 03:13:08 pm</h3>
+<h3>Jul 28, 2026 03:20:48 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jul 22, 2026 03:13:10 pm</h3>
+<h3>Jul 28, 2026 03:21:02 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -174,12 +379,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> tests passed
+<div><small data-tooltip='0%'>
+<b>0</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='100%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -197,10 +402,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='50%'><b>1</b> events passed</small></div>
+<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>1</b> others
+<small data-tooltip='33%'><b>1</b> events failed,
+<b data-tooltip='%'>2</b> others
 </small>
 </div>
 </div>
@@ -216,7 +421,7 @@
 </div></div>
 <script>
 var timeline = {
-"ValidateLogintest":1.792
+"ValidateLogintest":12.047
 };
 </script>
 <div class="row">
@@ -243,8 +448,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 0,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -260,11 +465,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 1,
-failEvents: 0,
+passEvents: 0,
+failEvents: 1,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 1
+infoEvents: 2
 };
 </script>        </div>
       </div>

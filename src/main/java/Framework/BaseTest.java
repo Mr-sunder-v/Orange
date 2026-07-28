@@ -17,7 +17,8 @@ public class BaseTest {
 		
 		config = new ConfigReader();
 		driver =PageDriver.init();
-		driver.get(config.getUrl());
+		String url = config.getProperty("url");
+		driver.get(url);
 	}
 	
 	@AfterMethod
