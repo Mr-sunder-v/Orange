@@ -57,14 +57,14 @@ public class AIClient {
 		config = new ConfigReader();
 		httpclient = HttpClient.newHttpClient();
 		
-		String apiKey = System.getenv("geminiAPIKey");
+		String apiKey = System.getenv("GEMINIAPIKEY");
 
 		if(apiKey == null || apiKey.isBlank()) {
 		    apiKey = config.getProperty("geminiAPIKey");
 		}
 		
 		apiURL= config.getProperty("url1")+"?key="+apiKey;
-		System.out.println(apiURL);
+//		System.out.println(apiURL);
 		
 		
 
