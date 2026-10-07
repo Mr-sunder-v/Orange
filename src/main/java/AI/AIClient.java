@@ -1,6 +1,6 @@
 package AI;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -20,6 +20,10 @@ public class AIClient {
 	private final HttpClient httpclient;
 	
 	 private final String apiURL;
+	 
+	 private final int retryCount;
+	 
+	 private final int retryDelay;
 	
 	 
 	
@@ -36,6 +40,59 @@ public class AIClient {
 //		System.out.println(config.getProperty("geminiAPIKey"));
 //		System.out.println(config.getProperty("geminiAPIKey").length());
 		
+		int statuscode = response.statusCode();
+		
+		if (statuscode==200)
+		{
+			return parseResponse(response);
+			
+		}
+		
+			
+			switch(statuscode)
+			{
+			
+			case 401:
+			return new AIResponse("invalid API Key",statuscode, apiURL);
+			
+			
+			case 429:
+			return new AIResponse("Exceed Rate Limit",statuscode, apiURL);
+			
+			
+			case 503:
+//			return new AIResponse("model unavailable",status, apiURL);
+				
+				for(int attempt =1;attempt<=retryCount; attempt++)
+				{
+					response = httpclient.send(req, BodyHandlers.ofString());
+					int status = response.statusCode();
+					if (status==200)
+					{
+						return parseResponse(response);
+						
+					}
+					if(attempt<retryCount)
+					{
+					Thread.sleep(retryDelay);
+					}
+					
+					
+				}
+				return new AIResponse("Model not available after multiple attempts",statuscode, apiURL);
+			
+			
+			default:
+			return new AIResponse("Something went wrong",statuscode, apiURL);
+			
+			
+			}
+			
+
+	}
+	
+	private AIResponse parseResponse(HttpResponse<String> response) {
+		
 		
 		JSONObject root = new JSONObject(response.body());
 		
@@ -46,16 +103,22 @@ public class AIClient {
 		JSONObject text = parts.getJSONObject(0);
 		String AiResponse = text.getString("text");
 		int statuscode = response.statusCode();
-		String url = apiURL;
-		
-		AIResponse ai = new AIResponse(AiResponse, statuscode,url);
-		
-		return ai;
+//		String url = apiURL;
+//		
+//		AIResponse ai = new AIResponse(AiResponse, statuscode,url);
+//		
+//		return ai;
+		return new AIResponse(
+		        AiResponse,
+		        statuscode,
+		        apiURL);
 	}
 
 	public AIClient() throws IOException {
 		config = new ConfigReader();
 		httpclient = HttpClient.newHttpClient();
+		retryCount = Integer.parseInt(config.getProperty("ai.retry.count"));
+		retryDelay = Integer.parseInt(config.getProperty("ai.retry.delay"));
 		
 		String apiKey = System.getenv("GEMINIAPIKEY");
 
@@ -70,7 +133,7 @@ public class AIClient {
 
 	}
 		
-		public String buildRequestBody(String prompt) {
+		private String buildRequestBody(String prompt) {
 			
 			JSONObject rootobj = new JSONObject();
 			JSONObject contentsobj = new JSONObject();

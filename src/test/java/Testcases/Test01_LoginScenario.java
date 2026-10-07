@@ -14,6 +14,8 @@ public class Test01_LoginScenario extends BaseTest {
 		LoginPage login = new LoginPage();
 		extentTestManager.getTest().info("Entering the details");
 		login.login("Admin", "admin123");
+		login.clickLogoutBtn();
+		
 	}
 
 }

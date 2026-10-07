@@ -13,7 +13,6 @@ import Framework.PageDriver;
 
 public class ScreenshotUtils{
 	
-	WebDriver driver = PageDriver.getDriver();
 
     public static String captureScreenshot(WebDriver driver, String testName) {
 
