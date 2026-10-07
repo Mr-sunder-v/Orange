@@ -21,7 +21,7 @@ public class TC02AddUser extends BaseTest {
 		
 		adminPage admin = new adminPage();
 		extentTestManager.getTest().info("Admin Page");
-		admin.createuser("Sunder2", "Test@12345","Timothy Lewis Amiano");
+		admin.createuser("Sunder21", "Test@12345","Timothy Lewis Amiano");
 		
 		String message = admin.getMessage();
 		
